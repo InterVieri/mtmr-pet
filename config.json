@@ -1,0 +1,7 @@
+{
+  "claude_cmd": "claude",
+  "dialog_skill": "",
+  "dialog_prompt": "像微信随口发3句不同的日常短句，口语自然，每句一行，只输出这3句，不要编号不要引号不要解释",
+  "font": "/System/Library/Fonts/STHeiti Medium.ttc",
+  "default_background": ""
+}

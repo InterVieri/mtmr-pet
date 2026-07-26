@@ -1,0 +1,29 @@
+[
+  // ===== 系统键 =====
+  { "type": "escape", "width": 60, "align": "left" },
+
+  // ===== 应用启动器示例（换成你自己的 App，单击激活）=====
+  { "type": "staticButton", "title": "访达", "width": 60, "align": "left", "action": "appleScript", "actionAppleScript": { "inline": "tell application \"Finder\" to activate" } },
+  { "type": "staticButton", "title": "终端", "width": 60, "align": "left", "action": "appleScript", "actionAppleScript": { "inline": "tell application \"Terminal\" to activate" } },
+
+  // ===== 信息显示（靠右）=====
+  { "type": "timeButton", "align": "right", "formatTemplate": "MM-dd HH:mm" },
+  { "type": "battery",    "align": "right" },
+
+  // ===== 角色闲逛 widget（本项目核心）=====
+  // 注意：source.inline 里的路径要改成你 clone 本项目的实际路径（MTMR 的 do shell script 需绝对路径，~ 会在 bash 展开）。
+  // alternativeImages 的 walk02~walkNN 由调试器「重做帧」自动写入，这里先放 walk01 占位即可。
+  {
+    "type": "appleScriptTitledButton",
+    "align": "center",
+    "width": 400,
+    "bordered": false,
+    "refreshInterval": 0.25,
+    "source": { "inline": "set lbl to (do shell script \"~/projects/mtmr/scripts/step.sh\")\nreturn {\" \", lbl}" },
+    "image": { "filePath": "~/projects/mtmr/icons/walk/walk_01.png" },
+    "alternativeImages": {
+      "walk01": { "filePath": "~/projects/mtmr/icons/walk/walk_01.png" },
+      "bubble": { "filePath": "~/projects/mtmr/icons/walk/bubble_current.png" }
+    }
+  }
+]

@@ -1,0 +1,28 @@
+# 素材（个人/第三方版权，不入仓库；二开者自备）
+icons/
+
+# 个人运行配置（调试器自动生成，不入仓库）
+debug-params.json
+scripts/params.sh
+
+# 备份
+items.json.backup.*
+
+# 实现记录（私人 checkpoint）
+docs/
+
+# MTMR 编译产物
+MTMR/build/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# 临时
+*.tmp
+
+# Claude Code 本地目录（含 token / agent-memory，绝不入仓库）
+.claude/
