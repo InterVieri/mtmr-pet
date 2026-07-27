@@ -308,7 +308,7 @@ def get_status():
         if item.get("type") != "appleScriptTitledButton":
             others.append({"type": item.get("type"), "align": item.get("align", "?"), "width": item.get("width", "?")})
     backs = [f.name for f in BACK_DIR.iterdir() if f.is_file()] if BACK_DIR.exists() else []
-    chars = sorted([f.name for f in CHARS_DIR.iterdir() if f.is_file()]) if CHARS_DIR.exists() else []
+    chars = sorted([f.name for f in CHARS_DIR.iterdir() if f.is_file() and f.suffix.lower() in ('.gif', '.png', '.jpg', '.jpeg')]) if CHARS_DIR.exists() else []
     return {
         "widget": {
             "width": widget.get("width") if widget else None,
@@ -513,7 +513,7 @@ pre { background: #1d1d1f; color: #f5f5f7; padding: 12px; border-radius: 6px; ov
     <select id="background" style="min-width:400px"></select>
   </div>
   <div class="row">
-    <span class="label">角色（11 个 GIF 选一）:</span>
+    <span class="label">角色（<span id="char_count">?</span> 个素材选一）:</span>
     <select id="char_selected" style="min-width:200px"></select>
   </div>
   <div class="row">
@@ -719,6 +719,7 @@ function refreshStatus() {
     }
     // 角色下拉
     const selChar = document.getElementById('char_selected');
+    const cc = document.getElementById('char_count'); if (cc) cc.textContent = s.chars.length;
     selChar.innerHTML = '';
     for (const c of s.chars) {
       const opt = document.createElement('option');
