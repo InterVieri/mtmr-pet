@@ -1,5 +1,7 @@
 # MTMR TouchBar 角色
 
+![TouchBar 效果演示](demo.gif)
+
 让一个卡通角色在你的 MacBook Pro TouchBar 上闲逛——随机方向走动、偶尔停顿转身，背景是像素场景。每隔 30-60 秒浮现一个对话框，对话内容可以**静态预设**或**大模型动态生成**（可注入任意人设 skill）。
 
 基于 [Toxblh/MTMR](https://github.com/Toxblh/MTMR)（MIT）二次开发。
