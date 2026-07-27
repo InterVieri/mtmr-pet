@@ -148,7 +148,8 @@ def split_char_frames(source, size):
         out = []
         for idx, fin in enumerate(frames_in):
             fout = WALK_DIR / f"char_{size}x{size}-{idx}.png"
-            subprocess.run(["convert", str(fin), "-resize", f"{size}x{size}",
+            # -trim 去透明 padding（横长方形/大留白图 resize 后不致扁小）+ resize 保持比例 + 居中铺正方形
+            subprocess.run(["convert", str(fin), "-trim", "+repage", "-resize", f"{size}x{size}",
                             "-gravity", "center", "-background", "none",
                             "-extent", f"{size}x{size}", str(fout)], capture_output=True)
             out.append(fout)
